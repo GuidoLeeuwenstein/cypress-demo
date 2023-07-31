@@ -21,13 +21,14 @@ describe('Example spec file', () => {
     overview.getAmountDueToday().should("contain.text", "$180")
   })
 
-  // In this test I will showcase my cypress knowledge a bit more in depth. We will compare the test targets table data with an expected set which is defined in the cypress fixtures
-  it("The user should be able to see their recent transactionss", () => {
+  // In this test I will showcase the more advanced capabilities of cypress.
+  // Here we will parse the data which is visible in the web page table and compare that data to what we have pre-defined in the expected-transaction-history.json file which can be found in the fixtures folder
+  it("The user should be able to see their recent transactions", () => {
     cy.visit("/")
     cy.login(KnownUsersEnum.standard_user)
 
     const overview = new UserDashBoardPo()
-    cy.fixture("expectedTransactionHistory").then((expectedData: ITransactionData[]) => {
+    cy.fixture("expected-transaction-history").then((expectedData: ITransactionData[]) => {
       overview.getParsedRecentTransactions().then((foundData) => {
         foundData.forEach((transaction, i) => {
           expect(JSON.stringify(expectedData[i])).to.eq(JSON.stringify(transaction))

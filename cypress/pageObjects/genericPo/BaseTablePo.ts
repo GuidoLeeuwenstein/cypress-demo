@@ -1,7 +1,7 @@
 export default abstract class BaseTablePo {
     private main: Function
 
-    constructor(parentElementSelector: string) {
+    protected constructor(parentElementSelector: string) {
         this.main = () => cy.get(parentElementSelector)
     }
 

@@ -15,7 +15,10 @@ export default class UserDashboardTransactionTablePo extends BaseTablePo{
         return super.filterTableRowsByContents(status)
     }
 
-    standardizeData(date: string): string {
+    //In the web app some dates are displayed relative to now.
+    // Because of this a normalize date method is needed.
+    //This method is missing a case for unexpected relative dates (day before yesterday), however seeing as the data on the demo app will not change I did not implement this fallback
+    standardizeDate(date: string): string {
         let actualDate: number
         let currentDate = new Date()
         switch (date) {

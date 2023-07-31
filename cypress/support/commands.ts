@@ -1,11 +1,11 @@
-import {IknownUser} from "../pageObjects/login/IknownUser";
+import {IKnownUser} from "../pageObjects/login/IKnownUser";
 import {KnownUsersEnum} from "../pageObjects/login/KnownUsersEnum";
+
 
 Cypress.Commands.add('login', (user: KnownUsersEnum, expectedToFail?: boolean) => {
     //Loads userdata
-    cy.fixture("login-info").then((userInfo: Record<KnownUsersEnum, IknownUser>) => {
+    cy.fixture("login-info").then((userInfo: Record<KnownUsersEnum, IKnownUser>) => {
         //gets the correct user
-        cy.log(JSON.stringify(userInfo))
         const specificUserData = userInfo[user]
 
         //Fills the user data into the login fields

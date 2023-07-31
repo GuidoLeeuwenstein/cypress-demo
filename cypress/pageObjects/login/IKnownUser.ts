@@ -1,4 +1,4 @@
-export interface IknownUser {
+export interface IKnownUser {
     username: string
     password: string
 }

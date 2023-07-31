@@ -22,7 +22,7 @@ export default class UserDashBoardPo {
         return transactions.each((transaction) => {
             parsedData.push({
                 status: transaction.find("td").eq(0).find("span").eq(1).text(),
-                date: transactionsPo.standardizeData(transaction.find("td").eq(1).find("span").eq(0).text()),
+                date: transactionsPo.standardizeDate(transaction.find("td").eq(1).find("span").eq(0).text()),
                 description: transaction.find("td").eq(2).find("span").text(),
                 category: transaction.find("td").eq(3).find("a").text(),
                 amount: transaction.find("td").eq(4).find("span").text()
