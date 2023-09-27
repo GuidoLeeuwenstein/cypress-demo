@@ -1,4 +1,4 @@
-# Cypress demo for IO
+# Cypress demo
 ## Guido Leeuwenstein
 
 ### about
